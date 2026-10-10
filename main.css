@@ -1,0 +1,78 @@
+:root{--bg:#f6f2eb;--surface:#fff;--ink:#241f1a;--muted:#6b6358;--brand:#b4442b;--line:#e3dacb;--ok:#1f6b3f;--bad:#a8231b;--r:10px;--fs:15px;--pad:12px;--side:216px;
+  --safe-b:env(safe-area-inset-bottom,0px);--safe-t:env(safe-area-inset-top,0px);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+:root[data-density=compact]{--fs:13px;--pad:7px}
+:root[data-motion=reduced] *{transition:none!important;animation:none!important}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--ink);font-size:var(--fs);line-height:1.4}
+a{color:var(--brand)}
+:focus-visible{outline:3px solid #1c5fd1;outline-offset:2px}
+#app{display:grid;grid-template-columns:var(--side) minmax(0,1fr);grid-template-rows:56px minmax(0,1fr);height:100vh;height:100dvh}
+#app.collapsed{--side:64px}
+header.top{grid-column:1/3;display:flex;align-items:center;gap:12px;padding:0 14px;padding-top:var(--safe-t);background:var(--surface);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);min-width:0}
+.logo{flex:none;width:34px;height:34px;border-radius:8px;background:var(--brand);color:#fff;display:grid;place-items:center;font-weight:700}
+.cname{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:28vw}
+.spacer{flex:1}
+.day{color:var(--muted);white-space:nowrap}
+.cash{display:flex;flex-direction:column;text-decoration:none;color:var(--ink);text-align:right;line-height:1.1;padding:4px 8px;border-radius:8px}
+.cash:hover{background:var(--bg)}.cash small{color:var(--muted)}
+.iconbtn{text-decoration:none;font-size:20px;padding:6px;min-width:44px;min-height:44px;display:grid;place-items:center}
+nav.side{background:var(--surface);border-right:1px solid var(--line);padding:10px 8px;display:flex;flex-direction:column;gap:2px;overflow:auto}
+nav.side a,nav.bottom a{display:flex;align-items:center;gap:10px;padding:10px;border-radius:8px;text-decoration:none;color:var(--ink);min-height:44px}
+nav.side a:hover{background:var(--bg)}
+nav a.active{background:var(--brand);color:#fff;font-weight:600}
+.ico{width:24px;text-align:center}
+.collapse{margin-top:auto}
+#app.collapsed nav.side .lbl{display:none}
+main{overflow:auto;padding:16px;outline:none}
+h1{margin:.2em 0 .1em;font-size:1.5em}h2{margin:.2em 0 .6em;font-size:1.1em}
+.muted{color:var(--muted)}.ok{color:var(--ok)}.bad{color:var(--bad)}
+.crumbs{font-size:.9em;color:var(--muted)}
+.card{display:block;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:var(--pad) 16px;margin:12px 0;color:var(--ink);text-decoration:none}
+a.card:hover{border-color:var(--brand)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.grid .card{margin:0}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}.grid2 .card{margin:12px 0}
+.stat .lbl{display:block;color:var(--muted);font-size:.85em}.stat strong{font-size:1.25em}.stat small{display:block;color:var(--muted)}
+.tablewrap{overflow-x:auto;max-width:100%}
+table{border-collapse:collapse;width:100%}
+th,td{padding:var(--pad) 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
+th{font-size:.8em;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);white-space:nowrap}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;align-items:center}
+input,select,textarea{font:inherit;padding:10px;border:1px solid #bdb2a1;border-radius:8px;background:#fff;color:var(--ink);min-height:44px;max-width:100%}
+input[type=checkbox]{min-height:0;width:20px;height:20px}
+input[type=color]{padding:2px;width:64px}
+label{display:block;margin:8px 0}label>input,label>select,label>textarea{display:block;margin-top:4px;width:100%}
+label.inline{display:flex;align-items:center;gap:8px}label.inline>input{width:auto;margin:0}
+.btn{font:inherit;display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;min-height:44px;border:1px solid #bdb2a1;border-radius:8px;background:#fff;color:var(--ink);cursor:pointer;text-decoration:none}
+.btn:hover{border-color:var(--brand)}
+.btn.primary{background:var(--brand);border-color:var(--brand);color:#fff;font-weight:600}
+.btn.danger{background:var(--bad);border-color:var(--bad);color:#fff}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.rowact{display:flex;gap:6px}
+.actions{display:flex;gap:8px;justify-content:flex-end;margin-top:12px;flex-wrap:wrap}.actions.left{justify-content:flex-start}
+.empty{padding:24px;text-align:center;color:var(--muted);background:var(--surface);border:1px dashed var(--line);border-radius:var(--r)}
+.checks{list-style:none;padding:0}
+.trend{display:inline-flex;align-items:center;gap:4px;color:var(--muted)}
+.preview{background:var(--bg);padding:10px;border-radius:8px;margin:8px 0;min-height:4.5em}
+.morelink{display:flex;gap:12px;align-items:center}
+dialog.modal{border:1px solid var(--line);border-radius:var(--r);padding:16px;width:min(92vw,440px);max-height:88dvh;overflow:auto;color:var(--ink)}
+dialog.modal::backdrop{background:rgba(0,0,0,.45)}
+.mhead{display:flex;justify-content:space-between;align-items:center;gap:8px}.mhead h2{margin:0}
+#toasts{position:fixed;right:12px;top:calc(64px + var(--safe-t));display:flex;flex-direction:column;gap:8px;z-index:50;max-width:min(92vw,380px)}
+.toast{background:#2b2620;color:#fff;padding:10px 14px;border-radius:8px;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.toast.ok{background:#1f6b3f}.toast.error{background:#a8231b}
+nav.bottom{display:none}
+@media (max-width:800px){
+  #app,#app.collapsed{grid-template-columns:minmax(0,1fr);grid-template-rows:52px minmax(0,1fr) calc(62px + var(--safe-b))}
+  header.top{grid-column:1}
+  nav.side{display:none}
+  nav.bottom{display:flex;background:var(--surface);border-top:1px solid var(--line);padding-bottom:var(--safe-b)}
+  nav.bottom a{flex:1;flex-direction:column;gap:0;justify-content:center;font-size:.75em;padding:6px 2px;border-radius:0}
+  nav.bottom .ico{font-size:20px}
+  .cname{max-width:34vw}.day{display:none}
+  main{padding:12px}
+}
